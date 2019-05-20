@@ -3,7 +3,7 @@ jobs:
     build:
         docker:
             - image: circleci/node
-        working_directory: ~/orbit
+        working_directory: ~/orbit/circlefire
         steps:
             - checkout
             - run: cd circlefire/
