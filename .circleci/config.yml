@@ -6,7 +6,7 @@ jobs:
         working_directory: ~/orbit
         steps:
             - checkout
-            - run: cd ./circlefire
+            - run: cd ./circlefire/circlefire
             - run: ls -alR
             - restore_cache:
                   keys:
