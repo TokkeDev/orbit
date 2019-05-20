@@ -6,6 +6,7 @@ jobs:
         working_directory: ~/orbit/circlefire
         steps:
             - checkout
+            - run: ls l- ~/orbit
             - restore_cache:
                   keys:
                       - v1-dependencies-{{ checksum "package.json" }}
