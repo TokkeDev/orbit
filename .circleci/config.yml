@@ -12,6 +12,7 @@ jobs:
                       - v1-dependencies-
             - run: cd circlefire && npm ci
             - run: cd circlefire && npm run build
+            - run: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
             - save_cache:
                   paths:
                       - node_modules
