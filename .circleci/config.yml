@@ -3,15 +3,15 @@ jobs:
     build:
         docker:
             - image: circleci/node
-        working_directory: ~/orbit
+        working_directory: ~/orbit/circlefire
         steps:
             - checkout
-            - run: cd circlefire/
             - run: ls -al
             - restore_cache:
                   keys:
                       - v1-dependencies-{{ checksum "circlefire/package.json" }}
                       - v1-dependencies-
+            - run: ls -al
             - run: npm ci
             - run: npm run build
             - save_cache:
