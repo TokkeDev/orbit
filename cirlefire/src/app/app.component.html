@@ -7,3 +7,24 @@
 <p>Create GitHub account and a repository for your project</p>
 <p>Clone or download <a href="https://github.com/bjornnorgaard/orbit">github.com/bjornnorgaard/orbit</a></p>
 <p>Copy and paste the folder 'circlefire', into your own project</p>
+
+<h2>Deploy to Hosting</h2>
+<p>Sign into <a href="https://firebase.google.com/">firebase.google.com</a></p>
+<p>Create firebase project. The project id will be your unique URL</p>
+<p>Go to the Develop > Hosting > Get Started</p>
+<p>Follow setup dialog for hosting using powershell, choosing</p>
+
+<li>Default Project: self-explanatory</li>
+<li>Public directory: dist/circlefire</li>
+<li>Configure as SPA: YES</li>
+
+<p>Update package.json scripts with these</p>
+
+<p class="code">"build": "ng build --prod",</p>
+<p class="code">"deploy": "ng build && firebase deploy",</p>
+
+<p>Deploy the app using your new command</p>
+
+<p class="code">npm run deploy</p>
+
+<p>Now the app should be available to the internet!</p>
