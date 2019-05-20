@@ -10,6 +10,7 @@ jobs:
                   keys:
                       - v1-dependencies-{{ checksum "circlefire/package.json" }}
                       - v1-dependencies-
+            - run: pwd
             - run: ls -la
             - run: npm ci
             - run: npm run build
