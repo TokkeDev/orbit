@@ -3,9 +3,10 @@ jobs:
     build:
         docker:
             - image: circleci/node:7.10
-        working_directory: ~/orbit/circlefire/
+        working_directory: ~/orbit/circlefire
 
         steps:
+            - working_directory: ~/orbit/circlefire
             - checkout
             - restore_cache:
                   keys:
