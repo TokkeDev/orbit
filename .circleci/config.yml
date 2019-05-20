@@ -3,18 +3,18 @@ jobs:
     build:
         docker:
             - image: circleci/node
-        working_directory: ~/orbit/circlefire/circlefire
+        working_directory: ~/orbit/circlefire
         steps:
             - checkout
             - run: cd ./circlefire/
             - run: ls -alR
             - restore_cache:
                   keys:
-                      - v1-dependencies-{{ checksum "package.json" }}
+                      - v1-dependencies-{{ checksum "~/orbit/circlefire/package.json" }}
                       - v1-dependencies-
             - run: npm ci
             - run: npm run build
             - save_cache:
                   paths:
                       - node_modules
-                  key: v1-dependencies-{{ checksum "package.json" }}
+                  key: v1-dependencies-{{ checksum "~/orbit/circlefire/package.json" }}
