@@ -1,0 +1,19 @@
+version: 2
+jobs:
+    build:
+        docker:
+            - image: circleci/node
+        working_directory: ~/orbit
+        steps:
+            - checkout
+            - restore_cache:
+                  keys:
+                      - v1-dependencies-{{ checksum "circlefire/package.json" }}
+                      - v1-dependencies-
+            - run: cd circlefire && npm ci
+            - run: cd circlefire && npm run build
+            - run: cd circlefire && ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+            - save_cache:
+                  paths:
+                      - node_modules
+                  key: v1-dependencies-{{ checksum "circlefire/package.json" }}
